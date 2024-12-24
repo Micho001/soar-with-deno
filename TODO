@@ -1,0 +1,6 @@
+[x] generated a new token
+[x] restart the backend server
+[x] register a user with a stackup username
+[x] login the new user that has your stackup username
+[x] update the user's username by appending ready for submission 
+[] delete user by calling the approprorite route path

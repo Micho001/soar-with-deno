@@ -2,7 +2,12 @@ import { decodeBase64, encodeBase64 } from "@std/encoding";
 import { type Argon2Params, hash } from "@denosaurs/argontwo";
 import "@std/dotenv/load";
 
-const TOKEN = decodeBase64(Deno.env.get("API_KEY") ?? "");
+const apiKey = Deno.env.get("API_KEY");
+if (!apiKey) {
+  throw new Error("API_KEY environment variable is missing or empty.");
+}
+
+const TOKEN = decodeBase64(apiKey);
 const encoder = new TextEncoder();
 
 export const argon2Verify = (
